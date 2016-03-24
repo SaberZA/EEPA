@@ -60,9 +60,8 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MathAnswer.cs" />
     <Compile Include="Rpc.cs" />
-    <Compile Include="RpcClient.cs" />
-    <Compile Include="RPCServer.cs" />
     <Compile Include="TestMessageQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -70,6 +69,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EEPA.Consumer\EEPA.Consumer.csproj">
+      <Project>{ce578569-23b5-4a04-9176-d1457ed2d312}</Project>
+      <Name>EEPA.Consumer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EEPA.Producer\EEPA.Producer.csproj">
       <Project>{C3E907AD-BAB9-40F9-8EF0-A5A1578A92BF}</Project>
       <Name>EEPA.Producer</Name>

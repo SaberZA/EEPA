@@ -59,10 +59,15 @@ namespace EEPA.Producer
             return Call(messageBody, message.GetType().Name);
         }
 
-        public string Call<T>(IDomainMessage message)
+
+        //public TR Execute<T, TR>(IDomainMessage<T> message)
+        //{
+        public TR Call<T, TR>(IDomainMessage message)
         {
             var messageBody = JsonConvert.SerializeObject(message);
-            return Call(messageBody,typeof(T).Name);
+            var answer =  Call(messageBody,typeof(T).Name.ToLower());
+
+            return JsonConvert.DeserializeObject<TR>(answer);
         }
     }
 }

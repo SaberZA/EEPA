@@ -20,7 +20,7 @@ namespace EEPA.Api.Modules
         {
             var user = this.Bind<User>();
 
-            _messageService.Send(user);
+            _messageService.Send<User,User>(user);
 
             return user;
         }

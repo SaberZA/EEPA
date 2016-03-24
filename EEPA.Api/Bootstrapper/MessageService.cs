@@ -16,15 +16,9 @@ namespace EEPA.Api.Bootstrapper
             return _rpcClient.Call(message);
         }
 
-        public string Send<T>(IDomainMessage<T> domainMessage)
+        public TR Send<T,TR>(IDomainMessage<T> domainMessage)
         {
-            var messageResponse = _rpcClient.Call<T>(domainMessage);
-            return messageResponse;
-        }
-
-        public string Send<T>(IDomainMessage domainMessage)
-        {
-            var messageResponse = _rpcClient.Call<T>(domainMessage);
+            var messageResponse = _rpcClient.Call<T,TR>(domainMessage);
             return messageResponse;
         }
     }
