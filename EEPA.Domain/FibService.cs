@@ -4,7 +4,7 @@ namespace EEPA.Domain
     {
         public string HandleQuery(dynamic args)
         {
-            return Fib(0).ToString();
+            return Fib(args).ToString();
         }
 
         public IDomainDriver DomainDriver { get; set; }
@@ -19,6 +19,8 @@ namespace EEPA.Domain
             DomainDriver = domainDriver;
 
             domainDriver.AttachToSystem(HandleType);
+
+            domainDriver.DomainEventHook += HandleQuery;
         }
 
         /// <summary>

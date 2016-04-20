@@ -6,5 +6,6 @@ namespace EEPA.Domain
     {
         void AttachToSystem(string handleType);
         bool IsConnected { get; }
+        event Func<dynamic, string> DomainEventHook;
     }
 }
