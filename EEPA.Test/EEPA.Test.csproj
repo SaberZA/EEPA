@@ -67,6 +67,7 @@
     <Compile Include="Rpc.cs" />
     <Compile Include="RpcClient.cs" />
     <Compile Include="RPCServer.cs" />
+    <Compile Include="TestDomainDriver.cs" />
     <Compile Include="TestDomainServiceFactory.cs" />
     <Compile Include="TestMessageQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -2,18 +2,23 @@ namespace EEPA.Domain
 {
     public class FibService : IDomainService
     {
+        public string HandleQuery(dynamic args)
+        {
+            return Fib(0).ToString();
+        }
+
         public IDomainDriver DomainDriver { get; set; }
+
+        public string HandleType
+        {
+            get { return typeof(FibMessage).Name; }
+        }
 
         public FibService(IDomainDriver domainDriver)
         {
             DomainDriver = domainDriver;
 
-            domainDriver.AttachToSystem(GetType());
-        }
-
-        public string HandleQuery()
-        {
-            return Fib(0).ToString();
+            domainDriver.AttachToSystem(HandleType);
         }
 
         /// <summary>

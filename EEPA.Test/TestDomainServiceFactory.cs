@@ -55,7 +55,7 @@ namespace EEPA.Test
 
             //---------------Execute Test ----------------------
             var fibService = new FibService(new RabbitMqDriver());
-            var result = fibService.HandleQuery();
+            var result = fibService.HandleQuery(null);
             //---------------Test Result -----------------------
             Assert.IsInstanceOf<IDomainService>(fibService);
             Assert.AreEqual("0",result);
@@ -78,6 +78,19 @@ namespace EEPA.Test
 
         [Test]
         public void CreateFibServiceWithRabbitMqDriver()
+        {
+            //---------------Set up test pack-------------------
+            var domainServiceFactory = CreateDomainServiceFactory();
+            //---------------Assert Precondition----------------
+
+            //---------------Execute Test ----------------------
+            var domainService = domainServiceFactory.Create<FibService>();
+            //---------------Test Result -----------------------
+            Assert.IsNotNull(domainService.DomainDriver);
+        }
+
+        [Test]
+        public void CreateFibService_GivenDomainServiceFactory_ShouldReturnFibServiceWithRabbitMqDriver()
         {
             //---------------Set up test pack-------------------
             var domainServiceFactory = CreateDomainServiceFactory();

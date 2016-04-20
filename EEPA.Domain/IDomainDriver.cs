@@ -4,6 +4,7 @@ namespace EEPA.Domain
 {
     public interface IDomainDriver
     {
-        void AttachToSystem(Type type);
+        void AttachToSystem(string handleType);
+        bool IsConnected { get; }
     }
 }

@@ -2,7 +2,8 @@
 {
     public interface IDomainService
     {
-        string HandleQuery();
+        string HandleQuery(dynamic args);
         IDomainDriver DomainDriver { get; set; }
+        string HandleType { get; }
     }
 }
