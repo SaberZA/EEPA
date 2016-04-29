@@ -46,15 +46,17 @@ namespace EEPA.Test
             //---------------Set up test pack-------------------
             var rabbitMqDriver = CreateRabbitMqDriver();
             var messageType = typeof (FibMessage).Name;
-            DeleteQueue(((RabbitMqDriver)rabbitMqDriver).Connection, messageType);
+            //DeleteQueue(((RabbitMqDriver)rabbitMqDriver).Connection, messageType);
             //---------------Assert Precondition----------------
-
+            
             //---------------Execute Test ----------------------
             rabbitMqDriver.AttachToSystem(messageType);
             //---------------Test Result -----------------------
-            
-        }
+            Assert.IsTrue(rabbitMqDriver.IsConnected);
 
+            ((RabbitMqDriver)rabbitMqDriver).CloseConnection();
+        }
+        
         private void DeleteQueue(IConnection connection, string messageType)
         {
             using (var channel = connection.CreateModel())

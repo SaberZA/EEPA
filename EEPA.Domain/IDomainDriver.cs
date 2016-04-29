@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace EEPA.Domain
 {
@@ -7,5 +8,6 @@ namespace EEPA.Domain
         void AttachToSystem(string handleType);
         bool IsConnected { get; }
         event Func<dynamic, string> DomainEventHook;
+        event Action<string> DomainResponse;
     }
 }

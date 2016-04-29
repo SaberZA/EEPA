@@ -66,6 +66,23 @@ namespace EEPA.Test
         }
 
         [Test]
+        public void SendRpcMessageToQueue()
+        {
+            //---------------Set up test pack-------------------
+            
+            //---------------Assert Precondition----------------
+
+            //---------------Execute Test ----------------------
+            var rpcClient = new RpcClient();
+
+            Debug.WriteLine(" [x] Requesting fib(30)");
+            var response = rpcClient.Call("30");
+            //---------------Test Result -----------------------
+            rpcClient.Close();
+            
+        }
+
+        [Test]
         public void StartRpcServer()
         {
             //---------------Set up test pack-------------------

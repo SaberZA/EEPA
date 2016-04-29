@@ -69,6 +69,7 @@
     <Compile Include="RPCServer.cs" />
     <Compile Include="TestDomainDriver.cs" />
     <Compile Include="TestDomainServiceFactory.cs" />
+    <Compile Include="TestFibService.cs" />
     <Compile Include="TestMessageQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

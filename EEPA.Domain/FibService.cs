@@ -9,18 +9,25 @@ namespace EEPA.Domain
 
         public IDomainDriver DomainDriver { get; set; }
 
+        public bool IsAttached
+        {
+            get { return DomainDriver.IsConnected; }
+        }
+
         public string HandleType
         {
             get { return typeof(FibMessage).Name; }
         }
 
+        
+
         public FibService(IDomainDriver domainDriver)
         {
             DomainDriver = domainDriver;
 
-            domainDriver.AttachToSystem(HandleType);
-
             domainDriver.DomainEventHook += HandleQuery;
+
+            domainDriver.AttachToSystem(HandleType);
         }
 
         /// <summary>
